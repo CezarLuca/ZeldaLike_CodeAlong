@@ -9,6 +9,7 @@ import {
 } from "three";
 import Camera from "./engine/camera";
 import Lighting from "./engine/lighting";
+import Graphics from "./engine/graphics";
 
 const scene = new Scene();
 
@@ -27,17 +28,20 @@ const lighting = new Lighting();
 scene.add(mesh);
 scene.add(lighting);
 
-const canvas = document.querySelector("canvas");
-const graphic = new WebGLRenderer({ canvas });
-graphic.setSize(window.innerWidth, window.innerHeight);
-graphic.render(scene, camera);
-graphic.setClearColor(0x000000);
+const graphics = new Graphics(scene, camera);
+graphics.onUpdate((dt) => {});
 
-window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    graphic.setSize(window.innerWidth, window.innerHeight);
-});
+// const canvas = document.querySelector("canvas");
+// const graphic = new WebGLRenderer({ canvas });
+// graphic.setSize(window.innerWidth, window.innerHeight);
+// graphic.render(scene, camera);
+// graphic.setClearColor(0x000000);
+
+// window.addEventListener("resize", () => {
+//     camera.aspect = window.innerWidth / window.innerHeight;
+//     camera.updateProjectionMatrix();
+//     graphic.setSize(window.innerWidth, window.innerHeight);
+// });
 
 // Example of how to update the camera's projection matrix:
 
