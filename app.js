@@ -4,26 +4,28 @@ import {
     WebGLRenderer,
     BoxGeometry,
     Mesh,
-    MeshStandardMaterial,
+    MeshPhongMaterial,
     PointLight,
 } from "three";
+import Camera from "./engine/camera";
+import Lighting from "./engine/lighting";
 
 const scene = new Scene();
 
 // const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const camera = new PerspectiveCamera(70, innerWidth / innerHeight);
-camera.position.set(0, 0, 4);
-camera.lookAt(0, 0, 0);
+const camera = new Camera();
 
 const geomertry = new BoxGeometry(1, 1, 1);
-const material = new MeshStandardMaterial();
+const material = new MeshPhongMaterial();
 const mesh = new Mesh(geomertry, material);
 
-const light = new PointLight();
-light.position.set(1, 0, 4);
+// const light = new PointLight();
+// light.position.set(1, 0, 4);
+
+const lighting = new Lighting();
 
 scene.add(mesh);
-scene.add(light);
+scene.add(lighting);
 
 const canvas = document.querySelector("canvas");
 const graphic = new WebGLRenderer({ canvas });
