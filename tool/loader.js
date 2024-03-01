@@ -6,6 +6,7 @@ export default async function loadAssets(path) {
     const glb = await loaderGlb.loadAsync(path);
     const visuals = [];
     const colliders = [];
+    const players = [];
 
     for (const mesh of glb.scene.children) {
         const name = mesh.name.toLowerCase();
@@ -16,8 +17,10 @@ export default async function loadAssets(path) {
             visuals.push(mesh);
         } else if (name.includes("collider")) {
             colliders.push(mesh);
+        } else if (name.includes("player")) {
+            players.push(mesh);
         }
     }
 
-    return { visuals, colliders };
+    return { visuals, colliders, players };
 }

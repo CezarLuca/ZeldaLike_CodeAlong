@@ -12,6 +12,7 @@ import Lighting from "./engine/lighting";
 import Graphics from "./engine/graphics";
 import loadAssets from "./tool/loader";
 import World from "./entity/world";
+import Player from "./entity/player";
 
 const meshes = await loadAssets("./glb/world0.glb");
 
@@ -29,6 +30,7 @@ const camera = new Camera();
 
 // const world = new World(meshes.visuals, meshes.colliders);
 const world = new World(meshes.visuals);
+const player = new Player(meshes.players[0]);
 const lighting = new Lighting();
 
 // scene.add(mesh);
