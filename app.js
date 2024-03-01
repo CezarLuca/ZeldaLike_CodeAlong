@@ -38,6 +38,7 @@ const lighting = new Lighting();
 // scene.add(...meshes.visuals);
 scene.add(lighting);
 scene.add(world);
+scene.add(player);
 
 const graphics = new Graphics(scene, camera);
 camera.setControls(graphics.domElement);
