@@ -10,9 +10,10 @@ import {
 import Camera from "./engine/camera";
 import Lighting from "./engine/lighting";
 import Graphics from "./engine/graphics";
-import loader from "./tool/loader";
+import loadAssets from "./tool/loader";
+import World from "./entity/world";
 
-const meshes = await loader("./glb/world0.glb");
+const meshes = await loadAssets("./glb/world0.glb");
 
 const scene = new Scene();
 
@@ -26,11 +27,14 @@ const camera = new Camera();
 // const light = new PointLight();
 // light.position.set(1, 0, 4);
 
+// const world = new World(meshes.visuals, meshes.colliders);
+const world = new World(meshes.visuals);
 const lighting = new Lighting();
 
 // scene.add(mesh);
 // scene.add(light);
-scene.add(...meshes.visuals);
+// scene.add(...meshes.visuals);
+scene.add(world);
 scene.add(lighting);
 
 const graphics = new Graphics(scene, camera);

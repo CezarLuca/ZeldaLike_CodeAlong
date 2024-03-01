@@ -1,4 +1,4 @@
-import { WebGLRenderer, Clock } from "three";
+import { WebGLRenderer, Clock, PCFSoftShadowMap } from "three";
 
 export default class Graphics extends WebGLRenderer {
     scene = null;
@@ -15,6 +15,7 @@ export default class Graphics extends WebGLRenderer {
         this.camera = camera;
         this.cbLoop = this.loop.bind(this);
         this.shadowMap.enabled = true;
+        this.shadowMap.type = PCFSoftShadowMap;
         this.loop();
         window.addEventListener("resize", this.resize.bind(this));
     }
