@@ -10,8 +10,8 @@ export default async function loadAssets(path) {
     for (const mesh of glb.scene.children) {
         const name = mesh.name.toLowerCase();
         if (name.includes("visual")) {
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
+            // mesh.castShadow = true;
+            // mesh.receiveShadow = true;
             // mesh.visible = true;
             visuals.push(mesh);
         } else if (name.includes("collider")) {

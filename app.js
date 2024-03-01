@@ -34,8 +34,8 @@ const lighting = new Lighting();
 // scene.add(mesh);
 // scene.add(light);
 // scene.add(...meshes.visuals);
-scene.add(world);
 scene.add(lighting);
+scene.add(world);
 
 const graphics = new Graphics(scene, camera);
 camera.setControls(graphics.domElement);

@@ -14,7 +14,7 @@ export default class World extends Object3D {
 
     initVisual(meshes) {
         for (const mesh of meshes) {
-            mesh.recieveShadow = true;
+            mesh.receiveShadow = true;
             mesh.castShadow = true;
             this.add(mesh);
         }
