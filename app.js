@@ -35,10 +35,12 @@ console.log("world:", world);
 console.log("players:", players);
 
 const graphics = new Graphics(scene, camera);
-camera.setControls(graphics.domElement);
+// camera.setControls(graphics.domElement);
 graphics.onUpdate((dt) => {
     // console.log("Updating camera and physics");
-    camera.update();
+    // camera.update();
+    camera.update(players[0]);
+    lighting.update(players[0]);
     physic.step();
     for (const player of players) {
         // console.log("Updating player:", player);
