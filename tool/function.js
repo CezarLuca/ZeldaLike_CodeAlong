@@ -34,3 +34,8 @@ export function createRigidBodyEntity(position, physic) {
 
     return { rigidBody, collider };
 }
+
+// This function fixes stick drift issues by setting small input values to 0
+export function floor(float, max = 0.2) {
+    return Math.abs(float) < max ? 0 : float;
+}
